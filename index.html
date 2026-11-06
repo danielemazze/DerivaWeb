@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="stile.css"></head><body>
 <header class="top"><a class="brand" href="index.html">Deriva</a><nav><a href="index.html#gioco">Il gioco</a><a href="evoluzione.html">Evoluzione</a><a href="index.html#prossimamente">Prossimamente</a><a href="index.html#proposte">Proposte</a><a class="btn sm" href="https://github.com/danielemazze/Deriva/releases/latest/download/Deriva-Windows.zip">Scarica</a></nav></header>
 <section class="hero" style="background-image:linear-gradient(180deg,rgba(6,18,28,.25),rgba(6,18,28,.92)),url(img/hero_1.20.jpg)">
- <div class="wrap"><p class="kicker">Versione 1.21.1 · «Gente nuova»</p><h1>Deriva</h1>
+ <div class="wrap"><p class="kicker">Versione 1.21.2 · «Tetti a 45 gradi»</p><h1>Deriva</h1>
  <p class="lead">Naufraghi su un arcipelago infinito. Costruisci zattere, velieri e galeoni, esplora isole, grotte e relitti, sopravvivi con fino a 4 amici.</p>
  <div class="cta"><a class="btn" href="https://github.com/danielemazze/Deriva/releases/latest/download/Deriva-Windows.zip">Scarica per Windows</a><a class="btn ghost" href="https://danielemazze.github.io/Deriva/">Gioca nel browser</a></div>
  <p class="small">Gratis · Windows 10 e 11 · nel browser anche da telefono · chi gioca da PC e da telefono può giocare insieme</p></div></section>
@@ -37,4 +37,4 @@ document.getElementById('fb').addEventListener('submit',async e=>{e.preventDefau
  const t=f.testo.value.trim(); if(t.length<5){m.textContent='Scrivi qualcosa in più.';return;}
  const b=new URLSearchParams(),F=FORM.fields; b.set(F.tipo,f.tipo.value); b.set(F.testo,t); b.set(F.nome,f.nome.value.trim()); b.set(F.versione,'sito'); b.set(F.piattaforma,'Sito web');
  m.textContent='Invio…'; try{await fetch(FORM.form,{method:'POST',mode:'no-cors',body:b}); f.testo.value=''; m.textContent='Grazie! Il messaggio è arrivato.';}catch(_){m.textContent='Non riesco a inviarlo adesso.';}});
-</script><footer><p>Deriva · sopravvivenza ed esplorazione tra le isole · versione 1.21.1</p><p class="small">Texture ambientCG (CC0) · personaggi e animazioni Mixamo · modelli Quaternius (CC0)</p></footer></body></html>
+</script><footer><p>Deriva · sopravvivenza ed esplorazione tra le isole · versione 1.21.2</p><p class="small">Texture ambientCG (CC0) · personaggi e animazioni Mixamo · modelli Quaternius (CC0)</p></footer></body></html>
