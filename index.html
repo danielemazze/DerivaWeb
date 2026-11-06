@@ -1,0 +1,40 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deriva — sopravvivenza tra le isole</title><meta name="description" content="Gioco di sopravvivenza ed esplorazione in mare, in prima persona: costruisci barche, esplora un arcipelago infinito, gioca con gli amici.">
+<meta property="og:title" content="Deriva — sopravvivenza tra le isole"><meta property="og:description" content="Gioco di sopravvivenza ed esplorazione in mare, in prima persona: costruisci barche, esplora un arcipelago infinito, gioca con gli amici."><meta property="og:image" content="img/hero_1.20.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Signika:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stile.css"></head><body>
+<header class="top"><a class="brand" href="index.html">Deriva</a><nav><a href="index.html#gioco">Il gioco</a><a href="evoluzione.html">Evoluzione</a><a href="index.html#prossimamente">Prossimamente</a><a href="index.html#proposte">Proposte</a><a class="btn sm" href="https://github.com/danielemazze/Deriva/releases/latest/download/Deriva-Windows.zip">Scarica</a></nav></header>
+<section class="hero" style="background-image:linear-gradient(180deg,rgba(6,18,28,.25),rgba(6,18,28,.92)),url(img/hero_1.20.jpg)">
+ <div class="wrap"><p class="kicker">Versione 1.21.1 · «Gente nuova»</p><h1>Deriva</h1>
+ <p class="lead">Naufraghi su un arcipelago infinito. Costruisci zattere, velieri e galeoni, esplora isole, grotte e relitti, sopravvivi con fino a 4 amici.</p>
+ <div class="cta"><a class="btn" href="https://github.com/danielemazze/Deriva/releases/latest/download/Deriva-Windows.zip">Scarica per Windows</a><a class="btn ghost" href="https://danielemazze.github.io/Deriva/">Gioca nel browser</a></div>
+ <p class="small">Gratis · Windows 10 e 11 · nel browser anche da telefono · chi gioca da PC e da telefono può giocare insieme</p></div></section>
+<main>
+<section id="gioco" class="wrap"><h2>Il gioco</h2>
+ <div class="cards">
+  <div class="card"><h3>Il mare da attraversare</h3><p>Dalla zattera al vascello a due ponti: ogni barca si costruisce pezzo per pezzo, si governa al timone e si arma di cannoni.</p></div>
+  <div class="card"><h3>Isole tutte diverse</h3><p>Giungle, deserti, isole di neve, vulcani, grotte con i minerali, villaggi, castelli sulle montagne, covi di pirati e relitti sul fondo.</p></div>
+  <div class="card"><h3>Costruisci e sopravvivi</h3><p>Fame, sete e temperatura; caccia, pesca e cucina; case di legno e pietra, fornaci, campi, cavalli da domare.</p></div>
+ </div>
+ <div class="gal"><img src="img/hero_1.21.jpg" alt="Scena dal gioco" loading="lazy"><img src="img/hero_1.19.1.jpg" alt="Scena dal gioco" loading="lazy"><img src="img/hero_1.19.jpg" alt="Scena dal gioco" loading="lazy"><img src="img/hero_1.18.jpg" alt="Scena dal gioco" loading="lazy"><img src="img/hero_1.17.jpg" alt="Scena dal gioco" loading="lazy"><img src="img/hero_1.21.1.jpg" alt="Scena dal gioco" loading="lazy"></div>
+ <p class="center"><a class="link" href="evoluzione.html">Guarda come è cambiato, versione dopo versione →</a></p>
+</section>
+<section id="prossimamente" class="wrap"><h2>Prossimamente</h2><p class="sub">Cosa arriverà nei prossimi aggiornamenti.</p><ul class="road" id="road"><li class="muted">Caricamento…</li></ul></section>
+<section id="proposte" class="wrap"><h2>Proposte e segnalazioni</h2><p class="sub">Hai un’idea per Deriva o hai trovato un problema? Scrivilo qui: ogni messaggio viene letto.</p>
+ <form id="fb" class="fb"><div class="seg" role="radiogroup"><label><input type="radio" name="tipo" value="Proposta" checked>Proposta</label><label><input type="radio" name="tipo" value="Problema">Problema</label><label><input type="radio" name="tipo" value="Commento">Commento</label></div>
+ <textarea name="testo" rows="5" maxlength="1500" placeholder="Es. vorrei poter pescare dalla barca…" required></textarea>
+ <input name="nome" maxlength="30" placeholder="Nome (facoltativo)"><button class="btn" type="submit">Invia</button><p id="fbmsg" class="small" role="status"></p></form></section>
+<section class="wrap install"><h2>Come si installa</h2><ol><li>Premi <b>Scarica per Windows</b> e apri il file zip.</li><li>Estrai la cartella <b>Deriva</b> dove vuoi, per esempio sul Desktop.</li><li>Apri <b>Deriva.exe</b>. Per le versioni nuove basta il pulsante <b>Controlla aggiornamento</b> nel menu del gioco.</li></ol></section>
+</main>
+<script>
+const ST={lavoro:'in lavorazione',presto:'prossimamente',poi:'in programma'};
+fetch('https://danielemazze.github.io/Deriva/roadmap.json?t='+Date.now()).then(r=>r.json()).then(R=>{const u=document.getElementById('road');u.innerHTML='';for(const x of R){const li=document.createElement('li');li.className='st-'+x.s;const s=document.createElement('span');s.className='st';s.textContent=ST[x.s]||'';const b=document.createElement('b');b.textContent=x.t;const d=document.createElement('small');d.textContent=x.d||'';li.append(s,b,d);u.append(li);}}).catch(()=>{document.getElementById('road').innerHTML='<li class="muted">Non riesco a caricare la lista adesso.</li>';});
+// modulo proposte (Google Moduli): si attiva quando FORM è impostato
+const FORM={"form": "", "fields": {}};
+document.getElementById('fb').addEventListener('submit',async e=>{e.preventDefault();const m=document.getElementById('fbmsg'),f=e.target;
+ if(!FORM.form){m.textContent='L’invio sarà attivo a breve.';return;}
+ const t=f.testo.value.trim(); if(t.length<5){m.textContent='Scrivi qualcosa in più.';return;}
+ const b=new URLSearchParams(),F=FORM.fields; b.set(F.tipo,f.tipo.value); b.set(F.testo,t); b.set(F.nome,f.nome.value.trim()); b.set(F.versione,'sito'); b.set(F.piattaforma,'Sito web');
+ m.textContent='Invio…'; try{await fetch(FORM.form,{method:'POST',mode:'no-cors',body:b}); f.testo.value=''; m.textContent='Grazie! Il messaggio è arrivato.';}catch(_){m.textContent='Non riesco a inviarlo adesso.';}});
+</script><footer><p>Deriva · sopravvivenza ed esplorazione tra le isole · versione 1.21.1</p><p class="small">Texture ambientCG (CC0) · personaggi e animazioni Mixamo · modelli Quaternius (CC0)</p></footer></body></html>
